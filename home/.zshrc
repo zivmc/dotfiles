@@ -156,6 +156,30 @@ export INFOPATH=/usr/local/texlive/2018/texmf/doc/info:$INFOPATH
 PATH=$PATH:/home/wzy/Applications/010-Editor-6.0.2;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 46BFCC2C-B041-D105-CC31-D1AF1882A814
 
 export PATH="/home/wzy/company/depot_tools:$PATH"
+export PATH="/home/wzy/toys/android-simg2img:$PATH"
+
+export PATH="/home/wzy/Applications/android-sdk/ndk-bundle:$PATH"
+
+export PATH="/home/wzy/Applications/protoc-3.9.0-linux-x86_64/bin:$PATH"
+
+export PATH="/home/wzy/Applications/wahoo-kernel-tools/bin/:$PATH"
+
+# alias for ida 7.0
+alias ida7="wine /home/wzy/Applications/Hex-Rays.IDA.Pro.v7.0.FULL.WIN\&OSX.m/Win/%SystemDrive%/Program\ Files/IDA\ 7.0/ida.exe"
+
+# alias for adb push
+alias ap='ap() { adb push $1 /data/local/tmp; }; ap'
+
+# alias for leetcode-cli
+alias lshow='lshow() {leetcode show $1; }; lshow'
+alias lshowg='lshowg() {leetcode show $1 -g; }; lshowg'
+alias lsubmit='lsubmit() {leetcode submit $1; }; lsubmit'
+alias ltest='ltest() {leetcode test $1; }; ltest'
+alias ltestt='ltestt() {leetcode test $1 -t $2; }; ltestt'
+
+# alias for expressvpn
+alias exc='expressvpn connect'
+alias exd='expressvpn disconnect'
 
 # for auto_complete
 fpath=(~/.zsh/completion $fpath)

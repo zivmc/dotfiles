@@ -1,7 +1,7 @@
-set columns=120
-set lines=60
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+" set columns=120
+" set lines=60
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
 
 let mapleader=","
 inoremap ;; <Esc>
@@ -33,6 +33,7 @@ endif
 
 " for cscope
 if has("cscope")
+    " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
     set cscopetag
     " check cscope for definition of a symbol before checking ctags:
     " set to 1 if you want the reverse search order.
