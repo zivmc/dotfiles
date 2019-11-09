@@ -1,1 +1,2 @@
 Bundle "dantezhu/authorinfo"
+UnBundle 'amirh/HTML-AutoCloseTag'
