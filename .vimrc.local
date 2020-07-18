@@ -46,10 +46,6 @@ if isdirectory(expand("~/.vim/bundle/authorinfo/"))
 endif
 "}
 
-if filereadable("cscope.out")
-    cs add cscope.out
-endif
-
 " for cscope
 if has("cscope")
     " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
@@ -69,6 +65,8 @@ if has("cscope")
     " show msg when any other cscope db added
     set cscopeverbose
 
+    " use the basename of cscope.out path as the prefix
+    " other options: 'cscoperelative' 'csre' 'nocscoperelative' 'nocsre'
     set csre
 
     nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
