@@ -1,0 +1,114 @@
+" set columns=120
+" set lines=60
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+
+let mapleader=","
+inoremap ;; <Esc>
+
+autocmd filetype markdown setlocal wrap
+
+" Windows only: disable annoying binking in git-bash for Windows
+set vb t_vb=
+
+" Linux only: keep clipboard contents after quitting vim
+" autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+" disable code folding
+autocmd VimEnter * set nofoldenable
+
+" for tabs
+noremap <A-Right> <Esc>:tabnext<CR>
+noremap <A-Left> <Esc>:tabprevious<CR>
+
+" next/previous buffer
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+" list buffers
+nnoremap <Leader>l :ls<CR>
+" switch between buffers
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+" AuthorInfo {
+if isdirectory(expand("~/.vim/bundle/authorinfo/"))
+    let g:vimrc_author='authorinfo.name'
+    let g:vimrc_email='authorinfo.email'
+    nmap <F4> :AuthorInfoDetect<cr>
+endif
+"}
+
+" for cscope
+if has("cscope")
+    " support Ctrl+] and Ctrl+t
+    set cscopetag
+    " check cscope for definition of a symbol before checking ctags:
+    " set to 1 if you want the reverse search order.
+    set csto=1
+
+    " add any cscope database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add the database pointed to by environment variable
+    elseif $CSCOPE_DB !=""
+        cs add $CSCOPE_DB
+    endif
+
+    " show msg when any other cscope db added
+    set cscopeverbose
+
+    " use the basename of cscope.out path as the prefix
+    " other options: 'cscoperelative' 'csre' 'nocscoperelative' 'nocsre'
+    set csre
+
+    nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-_>i :cs find i <C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
+
+noremap <Leader>c <Esc>:cs add cscope.out<CR>
+
+" config for NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
