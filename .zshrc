@@ -124,8 +124,10 @@ alias ssstop="sudo sslocal -c /etc/shadowsocks.json -d stop"
 alias ssstart="sudo sslocal -c /etc/shadowsocks.json -d start"
 
 # disable rm command
-alias rm='echo NO rm FOR YOU!\\n'
-alias rmdir='echo NO rmdir FOR YOU!\\n'
+alias rm='rm() { echo NO rm FOR YOU!\\n; }; rm'
+alias rmdir='rmdir() { echo NO rm FOR YOU!\\n; }; rmdir'
+
+
 
 # added by Anaconda3 installer
 # export PATH="/home/wzy/Applications/Anaconda3/bin:$PATH"
